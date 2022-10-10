@@ -1,0 +1,91 @@
+-- 조건문
+-- DECODE : 삼항 연산자
+-- (조건, 비교컬럼1, '비교값', 비교컬럼2, '비교값', '나머지')
+select decode(a, b, '1', c, '2', '3') from dual;
+SELECT 
+DECODE
+(
+    SUBSTR(E.EMPCD, 1, 1), 'A', '인사부', '총무부'
+    ,SUBSTR(E.EMPCD, 1, 1), 'B', '인사부', '총무부'
+    ,SUBSTR(E.EMPCD, 1, 1), 'C', '인사부', '총무부'
+    ,SUBSTR(E.EMPCD, 1, 1), 'D', '총무부', '인사부'
+    ,SUBSTR(E.EMPCD, 1, 1), 'E', '총무부', '인사부'
+    ,SUBSTR(E.EMPCD, 1, 1), 'F', '총무부', '인사부'
+)
+FROM 
+EMPBASICS_T T, EMPSCHEDULE E;
+
+-- if
+/*
+DECLARE 변수 선언
+BEGIN
+IF 변수 = 조건
+THEN DBMS_OUTPUT.put_line();
+ELSIF
+THEN DBMS_OUTPUT.put_line();
+ELSE
+END IF;
+END;
+/ (마지막 슬래시도 필수)
+*/
+DECLARE 
+    SALARY NUMBER := 5000;
+BEGIN
+IF SALARY = 5000
+    THEN DBMS_OUTPUT.put_line('SALARY는 5000이 맞다.');
+ELSIF SALARY = 4000
+    THEN DBMS_OUTPUT.put_line('SALARY는 4000이다.');
+ELSE
+    DBMS_OUTPUT.put_line('SALARY는 4000이다.');
+END IF;
+END;
+/
+
+-- case
+/*
+CASE 조건 
+    WHEN 결과1 THEN 출력1 
+    [WHEN 결과2 THEN 출력2]
+    ELSE 출력3
+END "컬럼명"
+*/
+
+-- EMP 테이블에서 SAL 3000이상이면 HIGH 1000이상이면 MID, 다 아니면 LOW
+SELECT * FROM EMP;
+SELECT ENAME 사원명, SAL 급여,
+	CASE 
+		WHEN SAL >= 3000 THEN 'HIGH'
+		WHEN SAL >= 1000 THEN 'MID'
+		ELSE 'LOW'
+	END
+FROM EMP;
+
+--STADIUM 테이블에서 SEAT_COUNT가 0 이상 30000이하면 'S' 30001이상 50000이하면 'M' 다 아니면 'L'
+--중첩케이스문
+SELECT STADIUM_NAME 경기장, SEAT_COUNT 좌석수, 
+	CASE
+		WHEN SEAT_COUNT BETWEEN 0 AND 30000 THEN 'S'
+		ELSE
+			(
+			CASE 
+				WHEN SEAT_COUNT BETWEEN 30001 AND 50000 THEN 'M'
+				ELSE 'L'
+				END
+			)
+		END
+FROM STADIUM;		
+		
+--PLAYER 테이블에서 WEIGHT가 50이상 70이하면 'L'
+--71이상 80이하면 'M' NULL이면 '미등록' 다 아니면 'H'
+SELECT PLAYER_NAME 선수이름, WEIGHT || 'kg' 몸무게,
+	CASE
+		WHEN WEIGHT BETWEEN 50 AND 70 THEN 'L'
+		WHEN WEIGHT BETWEEN 71 AND 80 THEN 'M'
+		ELSE
+		(
+		CASE WHEN WEIGHT IS NULL THEN '미등록'
+		ELSE 'H'
+		END
+		)
+	END 체급
+FROM PLAYER;
