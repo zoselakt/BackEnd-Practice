@@ -1,0 +1,14 @@
+collection
+generic
+lambda
+optional
+stream
+향상된 switch-case 문
+쓰레드
+가비지컬렉터
+socket
+Pattern Matching for switch
+자바 var (forEach 또는 lambda, 익명클래스에서 사용)
+Sealed Classes
+yield
+record
