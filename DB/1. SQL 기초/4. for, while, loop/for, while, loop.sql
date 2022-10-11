@@ -1,0 +1,33 @@
+--loop
+DECLARE
+NUM1 NUMBER :=1;
+
+BEGIN
+    LOOP
+    DBMS_OUTPUT.PUT_LINE(NUM1); 
+    NUM1 := NUM1+1; 
+    EXIT WHEN NUM1 >10; 
+    END LOOP;
+END;
+/
+
+--while
+DECLARE
+NUM1 NUMBER :=1;
+
+BEGIN
+    WHILE(NUM1<10) 
+    LOOP
+    DBMS_OUTPUT.PUT_LINE(NUM1); 
+    NUM1 := NUM1+1; 
+    END LOOP;
+END;
+/
+
+--for
+BEGIN
+    FOR I IN 1..9
+    LOOP
+    DBMS_OUTPUT.PUT_LINE('안녕하세요');
+    END LOOP;
+END;

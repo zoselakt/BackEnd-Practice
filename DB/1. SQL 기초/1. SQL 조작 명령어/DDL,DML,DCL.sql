@@ -1,5 +1,5 @@
 --DDL
--- CREATE: Å×ÀÌºí »ı¼º
+-- CREATE: í…Œì´ë¸” ìƒì„±
 create table board(
     bnum number primary key,
     title varchar2(100) not null,
@@ -9,43 +9,43 @@ create table board(
     regDate Timestamp default current_timestamp
 );
 
--- drop : Å×ÀÌºí »èÁ¦
+-- drop : í…Œì´ë¸” ì‚­ì œ
 drop table board;
 
--- alter : Å×ÀÌºí ¼öÁ¤
-	-- Å×ÀÌºí¸í ¼öÁ¤ : RENAME TO »õ·Î¿î Å×ÀÌºí¸í
+-- alter : í…Œì´ë¸” ìˆ˜ì •
+	-- í…Œì´ë¸”ëª… ìˆ˜ì • : RENAME TO ìƒˆë¡œìš´ í…Œì´ë¸”ëª…
     alter table board rename to spring_board;
-    -- ÄÃ·³Ãß°¡ :  ADD([»õ·Î¿î ÄÃ·³¸í] [ÄÃ·³Å¸ÀÔ])
+    -- ì»¬ëŸ¼ì¶”ê°€ :  ADD([ìƒˆë¡œìš´ ì»¬ëŸ¼ëª…] [ì»¬ëŸ¼íƒ€ì…])
     alter table spring_board add ex_column varchar2(100) not null;    
-    -- ÄÃ·³¸í º¯°æ: RENAME COLUMN [»ı¼ºµÈ ÄÃ·³¸í] TO [»õ·Î¿î ÄÃ·³¸í]
+    -- ì»¬ëŸ¼ëª… ë³€ê²½: RENAME COLUMN [ìƒì„±ëœ ì»¬ëŸ¼ëª…] TO [ìƒˆë¡œìš´ ì»¬ëŸ¼ëª…]
     alter table spring_board modify ex_column varchar2(200);
-    -- ÄÃ·³ »èÁ¦: DROP COLUMN [»ı¼ºµÈ ÄÃ·³¸í]
+    -- ì»¬ëŸ¼ ì‚­ì œ: DROP COLUMN [ìƒì„±ëœ ì»¬ëŸ¼ëª…]
     alter table spring_board drop column ex_column;
     
--- TRUNCATE: Å×ÀÌºí ³»¿ë ÀüÃ¼ »èÁ¦
+-- TRUNCATE: í…Œì´ë¸” ë‚´ìš© ì „ì²´ ì‚­ì œ
 TRUNCATE table spring_board;
 
 -- DML
 -- select
--- SELECT ÄÃ·³¸í1, ÄÃ·³¸íN FROM Å×ÀÌºí¸í WHERE Á¶°Ç½Ä;
+-- SELECT ì»¬ëŸ¼ëª…1, ì»¬ëŸ¼ëª…N FROM í…Œì´ë¸”ëª… WHERE ì¡°ê±´ì‹;
 select * from board;
 
 -- insert 
--- INSERT INTO Å×ÀÌºí¸í (ÄÃ·³¸í1, ÄÃ·³¸íN) VALUES(°ª1, °ªN)
+-- INSERT INTO í…Œì´ë¸”ëª… (ì»¬ëŸ¼ëª…1, ì»¬ëŸ¼ëª…N) VALUES(ê°’1, ê°’N)
 insert into board(bnum, title, writer, content, readCnt) 
-values(BOARD_SEQ.nextval, '»ï±¹Áö', 'À¯ºñ', 'ÃË³ª¶ó', 1);
+values(BOARD_SEQ.nextval, 'ì‚¼êµ­ì§€', 'ìœ ë¹„', 'ì´‰ë‚˜ë¼', 1);
 
 -- update
--- UPDATE Å×ÀÌºí¸í SET ±âÁ¸°ª = »õ·Î¿î°ª WHERE Á¶°Ç½Ä
+-- UPDATE í…Œì´ë¸”ëª… SET ê¸°ì¡´ê°’ = ìƒˆë¡œìš´ê°’ WHERE ì¡°ê±´ì‹
 update board set bnum = 2 where bnum = 1;
 
 -- delete
--- DELETE FROM Å×ÀÌºí¸í WHERE Á¶°Ç½Ä;
+-- DELETE FROM í…Œì´ë¸”ëª… WHERE ì¡°ê±´ì‹;
 delete from board where bnum = 1;
 
---TCL
--- commit: ¸ğµçÀÛ¾÷À» È®Á¤ÇÏ´Â ¸í·É¾îÀÌ´Ù
+
+-- COMMIT
 commit;
 
--- rollback: ÀÌÀü Ä¿¹ÔÇÑ ÁöÁ¡À¸·Î ÀÌµ¿
+-- ROLLBACK
 rollback;
