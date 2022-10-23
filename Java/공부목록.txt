@@ -1,3 +1,7 @@
+board 게시판에 enum으로 데이터 넘기기 연습!!
+user 패키지는 enum으로 데이터 전달 연습하고
+
+
 collection
 generic
 lambda
