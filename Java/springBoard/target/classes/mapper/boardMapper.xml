@@ -17,7 +17,6 @@
 		DELETE FROM board WHERE bnum = #{bnum}
 	</delete>
 	
-	
 	<select id="selectAll" resultType="boardDto">
 		SELECT * FROM board
 	</select>

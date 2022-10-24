@@ -22,17 +22,17 @@ public class BoardUpdateController {
 		this.boardService = boardService;
 	}
 	
-	@GetMapping("updateBoard")
+	@GetMapping("board/updateBoard")
 	public String update(Model model, @ModelAttribute BoardDto boardDto, @RequestParam int bnum ) throws Exception {
 		List<BoardDto> selectOne = boardService.selectOne(bnum);
 		
 		model.addAttribute("boardDto", boardDto);
 		model.addAttribute("selectOne", selectOne);
 		
-		return "updateBoard";
+		return "board/updateBoard";
 	}
 	
-	@PostMapping("updateBoard")
+	@PostMapping("board/updateBoard")
 	public String updateBoard(Model model, @ModelAttribute BoardDto boardDto) throws Exception {
 		boardService.update(boardDto);
 		

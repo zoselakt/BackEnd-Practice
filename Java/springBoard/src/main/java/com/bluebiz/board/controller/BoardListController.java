@@ -21,7 +21,7 @@ public class BoardListController {
 		this.boardService = boardService;
 	}
 	
-	@GetMapping("mainBoard")
+	@GetMapping("board/mainBoard")
 	public String main(Model model, @ModelAttribute BoardDto boardDto) throws Exception {
 		
 		List<BoardDto> selectAll = boardService.selectAll();
@@ -29,9 +29,9 @@ public class BoardListController {
 		model.addAttribute("boardDto", boardDto);
 		model.addAttribute("selectAll", selectAll);
 		
-		return "mainBoard";
+		return "board/mainBoard";
 	}
-	@GetMapping("detailBoard")
+	@GetMapping("board/detailBoard")
 	public String detail(Model model, @ModelAttribute BoardDto boardDto, 
 			@RequestParam int bnum) throws Exception {
 		
@@ -39,6 +39,6 @@ public class BoardListController {
 		
 		model.addAttribute("boardDto", boardDto);
 		model.addAttribute("selectOne", selectOne);
-		return "detailBoard";
+		return "board/detailBoard";
 	}
 }

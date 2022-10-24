@@ -9,5 +9,6 @@
     </settings>
     <typeAliases>
           <typeAlias alias="boardDto" type="com.bluebiz.board.domain.BoardDto"/>
+          <typeAlias alias="userDto" type="com.bluebiz.user.domain.UserDto"/>
     </typeAliases>
 </configuration>

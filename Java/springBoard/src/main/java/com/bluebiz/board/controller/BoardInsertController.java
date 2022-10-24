@@ -19,13 +19,13 @@ public class BoardInsertController {
 		this.boardService = boardService;
 	}
 	
-	@GetMapping("insertBoard")
+	@GetMapping("board/insertBoard")
 	public String insert(Model model, @ModelAttribute BoardDto boardDto) {
 		model.addAttribute("boardDto", boardDto);
-		return "insertBoard";
+		return "board/insertBoard";
 	}
 	
-	@PostMapping("insertBoard")
+	@PostMapping("board/insertBoard")
 	public String insertBoard(Model model, @ModelAttribute BoardDto boardDto) throws Exception {
 		model.addAttribute("boardDto", boardDto);
 		boardService.insert(boardDto);

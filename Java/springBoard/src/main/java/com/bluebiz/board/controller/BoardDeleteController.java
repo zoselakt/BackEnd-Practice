@@ -19,13 +19,13 @@ public class BoardDeleteController {
 		this.boardService = boardService;
 	}
 	
-	@GetMapping("deleteBoard")
+	@GetMapping("board/deleteBoard")
 	public String delete(Model model, BoardDto boardDto) {
 		model.addAttribute("boardDto", boardDto);
-		return "deleteBoard";
+		return "board/deleteBoard";
 	}
 	
-	@PostMapping("deleteBoard")
+	@PostMapping("board/deleteBoard")
 	public String deleteBoard(Model model, BoardDto boardDto, 
 			@RequestParam int bnum) throws Exception {
 		
