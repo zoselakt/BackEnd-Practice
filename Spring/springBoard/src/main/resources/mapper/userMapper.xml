@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.blubiz.board.mapper.userMapper">
+	<insert id="insert" parameterType="userDto">
+		INSERT INTO joinUser 
+			(
+			 unum, user_id, user_password, name
+			 , jumin, email, addr, phone
+			 )
+		VALUES 
+			(
+			 User_SEQ.NEXTVAL, #{user_id}, #{user_password}, #{name}
+			 , #{jumin}, #{email}, #{addr}, #{phone} 
+			)
+	</insert>
+
+	<update id="update" parameterType="userDto">
+			UPDATE joinUser SET 
+			(
+			 unum = #{unum}, user_id = #{user_id}, user_password = #{user_password}
+			 , name = #{name}, jumin = #{jumin}, email = #{email}, addr = #{addr}
+			 , phone = #{phone}
+			 )
+	</update>
+	<delete id="delete" parameterType="userDto">
+		DELETE FROM 
+			joinUser 
+		WHERE 
+			unum = #{unum}
+	</delete>
+	
+	<select id="selectUser" resultType="userDto" parameterType="int">
+		SELECT * FROM 
+			joinUser
+		WHERE 
+			unum = #{unum} 
+	</select>
+</mapper>
