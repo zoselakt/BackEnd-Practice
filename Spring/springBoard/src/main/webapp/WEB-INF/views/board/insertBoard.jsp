@@ -37,9 +37,9 @@ h1{
 				<td>제목</td>
 				<td><form:input path="title" class="title" type="text" size="50"/></td>
 			</tr>
-			<tr>
+			<tr style="display: none;">
 				<td>작성자</td>
-				<td><form:input path="writer" class="title" type="text" size="50"/></td>
+				<td><form:input path="writer" class="title" type="text" size="50" value="${user_id}"/></td>
 			</tr>
 			<tr>
 				<td>내용</td>

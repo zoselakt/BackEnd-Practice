@@ -1,5 +1,6 @@
 package com.bluebiz.board.user.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,20 +16,24 @@ public class UserDaoImpl implements UserDao{
 	private static String namespace = "com.bluebiz.board.mapper.userMapper.";
 	
 	@Override
-	public int insert(UserDto userDto) throws Exception {
-		return session.insert(namespace+"insert", userDto);
+	public int userInsert(UserDto userDto) throws Exception {
+		return session.insert(namespace+"userInsert", userDto);
 	}
 	@Override
-	public int update(UserDto userDto) throws Exception {
-		return session.update(namespace+"update", userDto);
+	public int userUpdate(UserDto userDto) throws Exception {
+		return session.update(namespace+"userUpdate", userDto);
 	}
 	@Override
-	public int delete(Integer unum) throws Exception {
-		return session.delete(namespace+"delete", unum);
+	public int userDelete(Integer unum) throws Exception {
+		return session.delete(namespace+"userDelete", unum);
 	}
 	@Override
 	public List<UserDto> selectUser() throws Exception {
 		return session.selectList(namespace+"selectUser");
+	}
+	@Override
+	public List<UserDto> login(HashMap<String, String> map) throws Exception {
+		return session.selectList(namespace+"login", map);
 	}
 	
 	

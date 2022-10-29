@@ -143,3 +143,30 @@ input + .gbtn{
     text-align: center;
     margin-top: 5px;
 }
+
+table tr td {
+	text-align: left;
+}
+
+table tr td input[name=tel] {
+	width: 40px;
+}
+
+table tr td input[name=addr] {
+	width: calc(100% - 14px);
+	/* {속성값 !important } 우선순위 지정 */
+}
+
+.ui-datepicker select {
+	vertical-align: middle;
+	height: 28px;
+}
+	
+.valid, .invalid { 
+	font-size: 11px;
+	font-weight: bold; 
+}
+
+.valid { color: green; }
+
+.invalid { color: red; }	

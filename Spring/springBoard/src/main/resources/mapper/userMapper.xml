@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
-<mapper namespace="com.blubiz.board.mapper.userMapper">
-	<insert id="insert" parameterType="userDto">
+<mapper namespace="com.bluebiz.board.mapper.userMapper">
+	<insert id="userInsert" parameterType="userDto">
 		INSERT INTO joinUser 
 			(
 			 unum, user_id, user_password, name
@@ -16,15 +16,23 @@
 			)
 	</insert>
 
-	<update id="update" parameterType="userDto">
-			UPDATE joinUser SET 
-			(
-			 unum = #{unum}, user_id = #{user_id}, user_password = #{user_password}
-			 , name = #{name}, jumin = #{jumin}, email = #{email}, addr = #{addr}
-			 , phone = #{phone}
-			 )
+	<update id="userUpdate" parameterType="userDto">
+			UPDATE 
+				joinUser 
+			SET 
+				unum = #{unum}
+			  , user_id = #{user_id}
+			  , user_password = #{user_password}
+			  , name = #{name}
+			  , jumin = #{jumin}
+			  , email = #{email}
+			  , addr = #{addr}
+			  , phone = #{phone}
+			WHERE 
+			   unum = #{unum}
 	</update>
-	<delete id="delete" parameterType="userDto">
+	
+	<delete id="userDelete" parameterType="userDto">
 		DELETE FROM 
 			joinUser 
 		WHERE 
@@ -36,5 +44,14 @@
 			joinUser
 		WHERE 
 			unum = #{unum} 
+	</select>
+	
+	<select id="login" resultType="userDto">
+		SELECT * FROM 
+			joinUser
+		WHERE
+			user_id = #{user_id}
+		AND
+			user_password = #{user_password}
 	</select>
 </mapper>

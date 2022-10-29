@@ -24,5 +24,16 @@
 	<context:component-scan base-package="com.bluebiz.board" />
 	
 	<view-controller path="/" view-name="mainBoard"/>
-	
+<!-- 	
+	<beans:bean id="LoginHandler" class="com.bluebiz.board.user.domain.LoginHandler"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/img/**" /> 
+			<exclude-mapping path="/login/**" />
+			<beans:ref bean="LoginHandler"/>
+		</interceptor>
+	</interceptors>
+	 -->
 </beans:beans>

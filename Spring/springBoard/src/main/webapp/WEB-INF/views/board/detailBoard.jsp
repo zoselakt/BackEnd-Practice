@@ -96,7 +96,10 @@ form#command{
 
 	<script type="text/javascript">
 		function goModify() { location.href="updateBoard?bnum=${boardDto.bnum}"}
-		function goDelete() { location.href="deleteBoard?bnum=${boardDto.bnum}"}
+		function goDelete() { 
+			alert("삭제하시겠습니까?");
+			location.href="deleteBoard?bnum=${boardDto.bnum}"
+		}
 		function goMain() { location.href="mainBoard"}
 	</script>
 </body>

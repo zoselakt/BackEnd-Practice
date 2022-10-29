@@ -7,69 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resource/css/board.css"/>
 	<script type="text/javascript">
 		function gomain() { location.href="../main"}
 		function goinsert() { location.href="insertBoard"}
 	</script>
-
-<style type="text/css">
-*{
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-}
-form#command{
-	width: 1000px;
-	margin: 0 auto;
-}
-h1{
-	text-align: center;
-	padding-bottom: 30px;
-}
-#board-table{
-	text-align: center;
-	margin: 0 auto;
-	display: inline-grid;
-}
-.title-tbody{
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-}
-.board-tr{
-	border: 1px solid #000;
-}
-.board-tr > td{
-	width: 150px;
-}
-.board-tr > td:nth-child(2) {
-	width: 400px;	
-}
-.inner-tbody{
-
-}
-.inner-tr{
-	display: block;
-	border-bottom: 1px solid #999;
-}
-.inner-tr > td{
-	width: 150px;
-}
-.inner-tr > td:nth-child(2) {
-	width: 400px;	
-}
-</style>
 </head>
 <body>
-<form:form action="mainBoard" method="post">
-<!-- 
-<div id="menu">
-	<ul>
-		<li><a href="<c:url value="mainBoard"/>"> Home </a></li>
-		<li><a href="<c:url value="insertBoard"/>"> 작성 </a></li>
-	</ul>
-</div>
- -->
  <h1>Mybatis Board</h1>
+ 	<div id="menu">
+		<ul>
+		    <li><a href="<c:url value='/main'/>">Home</a></li>
+		    <li><a href="<c:url value='/login'/>">login</a></li>    
+		    <li><a href="<c:url value='/board/mainBoard'/>">Board</a></li>
+		    <li><a href="<c:url value='/user/insertUser'/>">Sign in</a></li>
+		    <li><a href=""><i class="fas fa-search small"></i></a></li>
+		</ul> 
+	</div><br>
+<form:form action="mainBoard" method="post">
 <table id="board-table">
 	<tbody class="title-tbody">
 		<tr class="board-tr">

@@ -4,21 +4,21 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDto{
-	private long unum;
+	private int unum;
 	private String user_id;
 	private String user_password;
 	private String name;
-	private int fjumin;
-	private int ljumin;
+	private int jumin;
 	private String email;
-	private char gender;
 	private String addr;
 	private int phone;
+	
+	public UserDto() {}
 	
 	public long getUnum() {
 		return unum;
 	}
-	public void setUnum(long unum) {
+	public void setUnum(int unum) {
 		this.unum = unum;
 	}
 	public String getUser_id() {
@@ -39,29 +39,17 @@ public class UserDto{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getFjumin() {
-		return fjumin;
+	public int getJumin() {
+		return jumin;
 	}
-	public void setFjumin(int fjumin) {
-		this.fjumin = fjumin;
-	}
-	public int getLjumin() {
-		return ljumin;
-	}
-	public void setLjumin(int ljumin) {
-		this.ljumin = ljumin;
+	public void setJumin(int jumin) {
+		this.jumin = jumin;
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public char getGender() {
-		return gender;
-	}
-	public void setGender(char gender) {
-		this.gender = gender;
 	}
 	public String getAddr() {
 		return addr;
@@ -75,11 +63,11 @@ public class UserDto{
 	public void setPhone(int phone) {
 		this.phone = phone;
 	}
-	
 	@Override
 	public String toString() {
 		return "UserDto [unum=" + unum + ", user_id=" + user_id + ", user_password=" + user_password + ", name=" + name
-				+ ", fjumin=" + fjumin + ", ljumin=" + ljumin + ", email=" + email + ", gender=" + gender + ", addr="
-				+ addr + ", phone=" + phone + "]";
+				+ ", jumin=" + jumin + ", email=" + email + ", addr=" + addr + ", phone=" + phone + "]";
 	}
+	
+	
 }

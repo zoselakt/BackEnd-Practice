@@ -1,12 +1,15 @@
 package com.bluebiz.board.user.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.bluebiz.board.user.domain.UserDto;
 
 public interface UserService {
-	int insert(UserDto userDto) throws Exception;
-	int update(UserDto userDto) throws Exception;
-	int delete(Integer unum) throws Exception;
+	int userInsert(UserDto userDto) throws Exception;
+	int userUpdate(UserDto userDto) throws Exception;
+	int userDelete(Integer unum) throws Exception;
+	
 	List<UserDto> selectUser() throws Exception;
+	List<UserDto> login(HashMap<String, String> map) throws Exception;
 }

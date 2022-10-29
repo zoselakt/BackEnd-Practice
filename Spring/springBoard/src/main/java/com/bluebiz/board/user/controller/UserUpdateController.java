@@ -22,15 +22,15 @@ public class UserUpdateController {
 	}
 	
 	@GetMapping("user/updateUser")
-	public String update(Model model, @ModelAttribute BoardDto boardDto) {
-		model.addAttribute("boardDto", boardDto);
+	public String update(Model model, @ModelAttribute UserDto userDto) {
+		model.addAttribute("userDto", userDto);
 		return "board/updateUser";
 	}
 	
 	@PostMapping("user/updateUser")
 	public String updateUser(Model model, @ModelAttribute UserDto userDto) throws Exception {
 		model.addAttribute("userDto", userDto);
-		userService.update(userDto);
+		userService.userUpdate(userDto);
 		return "redirect:main";
 	}
 }

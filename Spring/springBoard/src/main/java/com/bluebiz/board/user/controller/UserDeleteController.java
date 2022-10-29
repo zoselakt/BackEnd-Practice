@@ -21,16 +21,14 @@ public class UserDeleteController {
 	}
 	
 	@GetMapping("user/deleteUser")
-	public String delete(Model model, @ModelAttribute UserDto userDto) {
+	public void delete(Model model, @ModelAttribute UserDto userDto) {
 		model.addAttribute("userDto", userDto);
-		return "user/deleteUser";
 	}
 	
 	@PostMapping("user/deleteUser")
-	public String deleteUser(Model model, @ModelAttribute UserDto userDto, 
+	public void deleteUser(Model model, @ModelAttribute UserDto userDto, 
 			@RequestParam Integer unum) throws Exception {
 		model.addAttribute("userDto", userDto);
-		userService.delete(unum);
-		return "redirect:main";
+		userService.userDelete(unum);
 	}
 }

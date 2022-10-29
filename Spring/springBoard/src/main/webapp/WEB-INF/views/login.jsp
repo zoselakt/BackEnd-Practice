@@ -10,28 +10,21 @@
 <link rel="stylesheet" href="/resource/css/initial.css"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/resource/JS/loginajax.js"></script>
-<script type="text/javascript">
-	function goBoard() { location.href="./board/mainBoard"}
-</script>
 </head>
 <body>
-	<!-- 로그인한 경우 -->
-	<c:if test="${!empty user_id }">
-		<ul>
-			<li>${user_id }님 환영합니다!</li>
-			<li><a class="btn-fill" onclick="go_logout()">로그아웃</a></li>
-		</ul>
-		<div class="btn_group">
-			<!-- <a href='<c:url value="./board/mainBoard"/>'>게시판이동</a> -->
-		   <button type="button" onclick="goBoard()" class="btn2">게시판이동</button>
-	    </div>
-	</c:if>
-	<!-- 로그인하지 않은 경우 -->
-	<c:if test="${empty user_id }">
-		<ul>
-			<li><a class="btn-fill" href="login">로그인</a></li>
+	  <form:form action="login" method="post" modelAttribute="userDto">
+        <table class="table_a">
+        <ul>
+			<li>
+				<span>
+					<input type="text" name="user_id" id="user_id" placeholder="아이디" />
+					<input type="password" name="user_password" id="user_password" onkeypress="if(event.keyCode == 13) {go_login()}" id="user_password" placeholder="비밀번호" />
+				</span>
+			</li>
+			<li><a class="btn-fill" onclick="go_login()">로그인</a></li>
 			<li><a class="btn-fill" href="user/insertUser">회원가입</a></li>
 		</ul>
-	</c:if>
+        </table>
+	  </form:form>
 </body>
 </html>

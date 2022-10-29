@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bluebiz.board.user.domain.UserDto;
 import com.bluebiz.board.user.service.UserService;
@@ -25,10 +26,11 @@ public class UserInsertController {
 		return "user/insertUser";
 	}
 	
+//	@ResponseBody
 	@PostMapping("user/insertUser")
 	public String insertUser(Model model, @ModelAttribute UserDto userDto) throws Exception {
 		model.addAttribute("userDto", userDto);
-		userService.insert(userDto);
-		return "redirect:main";
+		userService.userInsert(userDto);
+		return "redirect:../main";
 	}
 }

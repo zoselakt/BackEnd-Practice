@@ -4,17 +4,33 @@
         
 <mapper namespace="com.bluebiz.board.mapper.boardMapper">
 	<insert id="insert" parameterType="boardDto">
-		INSERT INTO board (bnum, title, writer, content)
-		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{content})
+		INSERT INTO board 
+		(
+		 bnum, title, writer, content
+		)
+		VALUES 
+		(
+		 BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{content}
+		)
 	</insert>
 	
 	<update id="update" parameterType="boardDto">
-		UPDATE board SET bnum = #{bnum}, title = #{title}, writer = #{writer}, 
-		content = #{content} WHERE bnum = #{bnum}
+		UPDATE 
+			board 
+		SET 
+		  bnum = #{bnum}
+		, title = #{title}
+		, writer = #{writer}
+		, content = #{content} 
+		WHERE 
+		  bnum = #{bnum}
 	</update>
 	
 	<delete id="delete" parameterType="boardDto">
-		DELETE FROM board WHERE bnum = #{bnum}
+		DELETE FROM 
+		  board 
+		WHERE 
+		  bnum = #{bnum}
 	</delete>
 	
 	<select id="selectAll" resultType="boardDto">
@@ -22,7 +38,10 @@
 	</select>
 	
 	<select id="selectOne" resultType="boardDto" parameterType="int">
-		SELECT * FROM board WHERE bnum = #{bnum}
+		SELECT * FROM 
+			board 
+		WHERE 
+			bnum = #{bnum}
 		<where>
 		
 		</where>
