@@ -1,1 +1,27 @@
-트리거
+트리거(Trigger)는 특정 테이블에 INSERT, DELETE, UPDATE 같은 DML 문이 수행되었을 때, 데이터베이스에서 자동으로 동작하도록 작성된 프로그램입니다. 즉! 사용자가 직접 호출하는 것이 아니라, 데이터베이스에서 자동적으로 호출하는 것이 가장 큰 특징입니다. 트리거(Trigger)는 테이블과 뷰 데이터베이스 작업을 대상으로 정의할 수 있으며, 전체 트랜잭션 작업에 대해 발생되는 트리거(Trigger)와 각행에 대해 발생되는 트리거(Trigger)가 있습니다.
+
+작성
+CREATE OR REPLACE TRIGGER 트리거이름
+
+예시)
+CREATE OR REPLACE TRIGGER UPDATE_NAME 
+AFTER UPDATE 
+OF NAME
+
+ON SUMMONER_TB 
+REFERENCING NEW AS  N OLD AS  O
+FOR EACH ROW
+BEGIN
+UPDATE GAME_TB SET NAME =: N.NAME WHERE NAME =: O.NAME;
+END;
+
+수정
+CREATE OR REPLACE 문법을 사용하여 생성과 동일하게 해주면 됩니다.
+(해당하는 트리거가 있으면 수정을, 없으면 생성하게 됩니다.)
+CREATE OR REPLACE ...
+
+삭제
+DROP TRIGGER 트리거 이름으로 실행해주면 삭제가 됩니다.
+DROP TRIGGER 트리거이름;
+UPDATE_NAME 트리거를 삭제해주면
+DROP TRIGGER UPDATE_NAME;
